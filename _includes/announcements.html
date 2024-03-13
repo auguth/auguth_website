@@ -1,0 +1,22 @@
+<section class="announcements wrapper1">
+    <h1>Announcements</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+    
+    <div class="fluid">
+        <div class="row g-3">
+          {% assign sorted_announcements = site.ANNOUNCEMENTS | sort: 'date'| reverse  %}
+          {% for page in sorted_announcements %}
+            <div class="col-md-6 col-lg-4 g-3">
+               <div class="card announcard">
+                  <img src="{{site.baseurl}}/assets/images/{{page.imgurl}}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                  <p class="date">{{ page.date | date: "%d %B %Y" }}</p>
+                  <a href="{{site.baseurl}}/{{page.url | remove: '.html'}}" class="boxlink"><h5 class="card-title">{{page.title}}</h5></a>
+                  <a href="{{site.baseurl}}/{{page.url | remove: '.html'}}" class="boxlink"><p class="card-text">{{page.description | truncate: 75}}</p></a>
+                </div>
+               </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+</section>

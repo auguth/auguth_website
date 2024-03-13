@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auguth Research</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="/auguth.org/assets/css/main.css">
+
+
+</head>
+<body>
+    <header>
+        <nav class="header">
+    <a href="/auguth.org/index.html"><img class="logo" src="/auguth.org/assets/images/auguth_full_logo.png" alt="Brand-logo"></a>
+    <div class="menubox">
+        <ul>
+            <li><a class="menu-link" href="/auguth.org/pages/announlist.html">Announcement</a></li>
+            <li><a class="menu-link" href="https://github.com/auguth" target="_blank">Github</a></li>
+            <li><a class="menu-link" href="/auguth.org/#contactsection">Contact us</a></li>
+        </ul>
+    </div>
+    <div class="hamburger" id="hamburgerbox">
+        <lable href="hamburger-link"><i class='bx bx-menu'></i></lable>
+    </div>
+</nav>
+
+
+    </header>    
+    <div id="announpage" class="wrapper">
+        
+<div class="btncontainer">
+    <div class="sharediv">
+            <button id="shareButton" class="socialbtn share-button"><i class='bx mdicon bxs-share-alt' style='color:#ffffff'  ></i>Share</a></button>           
+            <div class="share-menu" id="shareMenu">
+                <span class="share-icon" onclick="shareOnWhatsApp()"><i class='bx bxl-whatsapp' style='color:#ffffff'></i></span>
+                <span class="share-icon" onclick="shareViaEmail()"><i class='bx bxs-envelope' style='color:#ffffff' ></i></span>
+                <span class="share-icon" onclick="shareOnTwitter()"><i class='bx bxl-twitter' style='color:#ffffff' ></i></span>
+                <span class="share-icon" onclick="shareOnTelegram()"><i class='bx bxl-telegram' style='color:#ffffff' ></i></span>
+            </div>
+        </div>
+        
+    <button class="socialbtn" id="scrollToGiscus">
+        <i class='bx mdicon bxs-conversation'></i>
+        <a class="btnlnk" href="#">Discuss</a>
+    </button>    
+</div>
+
+<h1></h1>
+<p>  </p>
+<p><strong>Created on : </strong>  </p>
+
+<br>
+             
+<br>
+   
+<br>
+<!-- share icon script -->
+<script>
+    // JavaScript functions for sharing
+    function shareOnWhatsApp() {
+        window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(window.location.href), "_blank");
+    }
+
+    function shareViaEmail() {
+        window.location.href = "mailto:?body=" + encodeURIComponent("Check out this link: " + window.location.href);
+    }
+
+    function shareOnTwitter() {
+        window.open("https://twitter.com/intent/tweet?url=" + encodeURIComponent(window.location.href), "_blank");
+    }
+
+    function shareOnTelegram() {
+        window.open("https://t.me/share/url?url=" + encodeURIComponent(window.location.href), "_blank");
+    }
+
+    // Toggle the share menu
+    document.getElementById("shareButton").addEventListener("click", function () {
+        var shareMenu = document.getElementById("shareMenu");
+        if (shareMenu.style.display === "block") {
+            shareMenu.style.display = "none";
+        } else {
+            shareMenu.style.display = "block";
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const scrollToGiscusButton = document.getElementById("scrollToGiscus");
+      const giscusDiv = document.getElementById("giscus-cmt");
+  
+      scrollToGiscusButton.addEventListener("click", function (e) {
+        e.preventDefault(); // Prevent the default behavior of the anchor link
+        giscusDiv.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  </script>
+  
+
+
+
+
+
+        <div id="maincontent">
+</div>
+        <br><br>
+        <div id="giscus-cmt">
+            
+        </div>
+    </div>
+    <div class="totop">
+        <a href="#">
+          <i class='bx backtop bxs-to-top'></i>
+       </a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<!--  Header -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var hamburger = document.getElementById('hamburgerbox');
+    var menubox = document.querySelector('.menubox');
+    var icon = document.querySelector('.bx');
+
+    hamburger.addEventListener('click', function () {
+        menubox.classList.toggle('transition');
+        menubox.style.left = (menubox.style.left === "-100%" || menubox.style.left === "") ? "0" : "-100%";
+
+        // Toggle between 'bx-menu' and 'bx-x' icons
+        icon.classList.toggle('bx-menu');
+        icon.classList.toggle('bx-x');
+    });
+});
+</script>
+    <footer  class="footercontainer">
+    <div class="footerlinks">
+        <a href="/auguth.org/termsandconditions">Terms and conditions</a>
+        <a href="/auguth.org/privacypolicy">Privacy policy</a>
+    </div>
+    <p class="footertxt"> Copyright @ Auguth Research Foundation 2024 </p>
+</footer>
+
+</body>
+</html>
