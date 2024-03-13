@@ -1,5 +1,5 @@
 ---
-title: Introducing Proof of contract stake 
+title: This site is under construction
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  fvfvsfjn uajncn najcnomc ijnjqndlqjbj jbjnnwefnjnijnjnjnf ojnomkp mkjnb
 imgurl: sample.jpeg
 date: 12.10.2023
