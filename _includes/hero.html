@@ -6,7 +6,7 @@
             <div class="herotxt">
                 <h1>{{ page.title }}</h1>
                 <p>{{ page.description | truncate: 100 }}</p>
-                <a href="{{site.baseurl}}/{{page.url | remove: '.html'}}"><button class="herobtn">Read <i class='bx bx-right-arrow-alt' undefined ></i></button></a>
+                <a href="{{site.url}}{{page.url | remove: '.html'}}"><button class="herobtn">Read <i class='bx bx-right-arrow-alt' undefined ></i></button></a>
             </div>
             <img class="heroimg" src="{{site.baseurl}}/assets/images/{{page.imgurl}}" alt="">
         </div>

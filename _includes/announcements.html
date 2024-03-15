@@ -11,8 +11,8 @@
                   <img src="{{site.baseurl}}/assets/images/{{page.imgurl}}" class="card-img-top" alt="...">
                   <div class="card-body">
                   <p class="date">{{ page.date | date: "%d %B %Y" }}</p>
-                  <a href="{{site.baseurl}}/{{page.url | remove: '.html'}}" class="boxlink"><h5 class="card-title">{{page.title}}</h5></a>
-                  <a href="{{site.baseurl}}/{{page.url | remove: '.html'}}" class="boxlink"><p class="card-text">{{page.description | truncate: 75}}</p></a>
+                  <a href="{{site.url}}{{page.url | remove: '.html'}}" class="boxlink"><h5 class="card-title">{{page.title}}</h5></a>
+                  <a href="{{site.url}}{{page.url | remove: '.html'}}" class="boxlink"><p class="card-text">{{page.description | truncate: 75}}</p></a>
                 </div>
                </div>
             </div>
