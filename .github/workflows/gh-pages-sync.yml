@@ -1,4 +1,4 @@
-name: Update gh-pages
+name: sync changes main -> gh-pages
 
 on:
   push:
