@@ -15,12 +15,17 @@ jobs:
         with:
           ref: main
 
-      - name: Copy files to gh-pages
+      - name: Fetch gh-pages branch
+        run: git fetch origin gh-pages:gh-pages
+
+      - name: Merge changes from main to gh-pages
         run: |
-          cp -r ./* gh-pages/
-          cd gh-pages
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
-          git add .
+          git checkout gh-pages
+          git merge main --no-commit --no-ff
+
+          # Resolve conflicts if any
           git commit -m "Update from main branch"
-          git push
+
+      - name: Push changes to gh-pages
+        run: |
+          git push origin gh-pages
