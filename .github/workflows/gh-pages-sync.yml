@@ -1,4 +1,4 @@
-name: Update gh-pages
+name: Sync gh-pages with main
 
 on:
   push:
@@ -6,9 +6,9 @@ on:
       - main
 
 jobs:
-  deploy:
+  sync:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout main
         uses: actions/checkout@v2
@@ -21,13 +21,10 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Merge changes
+      - name: Sync changes
         run: |
+          cp -r ./main/* ./gh-pages/
           cd gh-pages
-          git fetch origin gh-pages
-          git merge origin/gh-pages --no-edit
-
-      - name: Push changes
-        run: |
-          cd gh-pages
+          git add .
+          git commit -m "Sync changes from main"
           git push origin gh-pages
