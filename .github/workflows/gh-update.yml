@@ -6,23 +6,28 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout main
         uses: actions/checkout@v2
+        with:
+          ref: main
 
+      - name: Checkout gh-pages
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          path: gh-pages
 
-      - name: Fetch changes from remote gh-pages branch
+      - name: Merge changes
         run: |
+          cd gh-pages
           git fetch origin gh-pages
-
-      - name: Merge changes into local gh-pages branch
-        run: |
-          git checkout gh-pages
           git merge origin/gh-pages --no-edit
 
-      - name: Deploy to gh-pages
+      - name: Push changes
         run: |
+          cd gh-pages
           git push origin gh-pages
