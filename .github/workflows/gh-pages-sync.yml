@@ -1,4 +1,4 @@
-name: sync changes main -> gh-pages
+name: Mirror main to gh-pages
 
 on:
   push:
@@ -6,26 +6,15 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout main
+      - name: Checkout repository
         uses: actions/checkout@v2
-        with:
-          ref: main
 
-      - name: Fetch gh-pages branch
-        run: git fetch origin gh-pages:gh-pages
-
-      - name: Merge changes from main to gh-pages
+      - name: Mirror changes to gh-pages
         run: |
           git checkout gh-pages
-          git merge main --no-commit --no-ff
-
-          # Resolve conflicts if any
-          git commit -m "Update from main branch"
-
-      - name: Push changes to gh-pages
-        run: |
+          git merge --no-edit main
           git push origin gh-pages
