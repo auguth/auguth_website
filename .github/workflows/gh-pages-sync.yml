@@ -1,4 +1,4 @@
-name: Sync gh-pages with main
+name: Update gh-pages
 
 on:
   push:
@@ -6,28 +6,21 @@ on:
       - main
 
 jobs:
-  sync:
+  deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout main
         uses: actions/checkout@v2
         with:
           ref: main
 
-      - name: Ensure main directory exists
-        run: mkdir -p main
-
-      - name: Checkout gh-pages
-        uses: actions/checkout@v2
-        with:
-          ref: gh-pages
-          path: gh-pages
-
-      - name: Sync changes
+      - name: Copy files to gh-pages
         run: |
-          cp -r ./main/* ./gh-pages/
+          cp -r ./* gh-pages/
           cd gh-pages
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
           git add .
-          git commit -m "Sync changes from main"
-          git push origin gh-pages
+          git commit -m "Update from main branch"
+          git push
