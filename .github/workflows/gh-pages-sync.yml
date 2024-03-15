@@ -15,6 +15,9 @@ jobs:
         with:
           ref: main
 
+      - name: Ensure main directory exists
+        run: mkdir -p main
+
       - name: Checkout gh-pages
         uses: actions/checkout@v2
         with:
